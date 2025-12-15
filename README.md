@@ -20,7 +20,7 @@ Reliable internet connection.
 
 Bash
 
-git clone https://github.com/YourUsername/your-repo-name.git
+git clone https://github.com/MattBut/bybit_complex_bot_demo.git
 
 cd your-repo-name
 
@@ -49,6 +49,7 @@ Create a file named .env in the ROOT DIRECTORY for secure key management:
 BYBIT_API_KEY="YOUR_BYBIT_API_KEY"
 
 BYBIT_API_SECRET="YOUR_BYBIT_API_SECRET"
+#
 
 SECTION 2: BOT CONFIGURATION (main.py)
 
