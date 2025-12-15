@@ -3,9 +3,9 @@
 Trading bot with  EMA strategy could be used as framework to  different strategies analysing 
 
 🤖 CRYPTO TRADING SIMULATOR BOT: INSTALLATION & USAGE GUIDE
-
+#
 SECTION 1: PREREQUISITES AND SETUP
-
+#
 1.1. SYSTEM REQUIREMENTS
 
 Python 3.9+ (Installed).
@@ -50,9 +50,8 @@ BYBIT_API_KEY="YOUR_BYBIT_API_KEY"
 
 BYBIT_API_SECRET="YOUR_BYBIT_API_SECRET"
 #
-
 SECTION 2: BOT CONFIGURATION (main.py)
-
+#
 All trading logic and risk parameters are set in main.py.
 
 2.1. GLOBAL TRADING SETTINGS
@@ -76,9 +75,9 @@ Take Profit %: TP_PERCENT is 1.0.
 Fast/Slow EMA: Lengths are 10 / 20.
 
 Interval: KLINE_INTERVAL is '60' (60 minutes).
-
+#
 SECTION 3: EXECUTION AND ACCOUNTING
-
+#
 3.1. RUNNING THE BOT
 
 Start the main trading loop from your activated virtual environment:
