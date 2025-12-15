@@ -44,7 +44,7 @@ pip install pandas pandas-ta numpy python-dotenv pybit openpyxl
 
 Create a file named .env in the ROOT DIRECTORY for secure key management:
 
-# .env file content
+.env file content
 
 BYBIT_API_KEY="YOUR_BYBIT_API_KEY"
 
