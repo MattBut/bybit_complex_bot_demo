@@ -1,13 +1,91 @@
 # bybit_complex_bot_demo
 Trading bot with  EMA strategy could be used as framework to  different strategies analysing 
-🤖 CRYPTO TRADING SIMULATOR BOT: INSTALLATION & USAGE GUIDEThis guide details the setup and configuration for the Crypto Trading Simulator Bot, a Python-based application using technical analysis (EMA) and dynamic risk management.📌 PREREQUISITESPython 3.9+ (installed and configured).Bybit API Key and Secret (for live or Testnet trading/data).Reliable internet connection.🛠️ SECTION 1: INSTALLATION AND PROJECT SETUP1.1. Project InitializationClone the Repository:Bashgit clone https://github.com/YourUsername/your-repo-name.git
+
+🤖 CRYPTO TRADING SIMULATOR BOT: INSTALLATION & USAGE GUIDE
+SECTION 1: PREREQUISITES AND SETUP
+1.1. SYSTEM REQUIREMENTS
+
+Python 3.9+ (Installed).
+
+Bybit API Key/Secret (Required for data fetching).
+
+Reliable internet connection.
+
+1.2. INSTALLATION STEPS
+
+1. Clone the Repository:
+
+Bash
+
+git clone https://github.com/YourUsername/your-repo-name.git
 cd your-repo-name
-Create & Activate Virtual Environment:Bashpython3 -m venv venv
+2. Create & Activate Virtual Environment:
+
+Bash
+
+python3 -m venv venv
 source venv/bin/activate
-Install All Dependencies:Bashpip install pandas pandas-ta numpy python-dotenv pybit openpyxl
-Place Indicator Files: Ensure the supporting indicator files (e.g., ema_indicator.py) are located in the /indicators/ subdirectory.1.2. API Configuration (.env file)For secure key management, create a file named .env in the project root directory and add your Bybit credentials:Ini, TOML# .env file content MUST be in the root directory
+3. Install All Dependencies:
+
+Bash
+
+pip install pandas pandas-ta numpy python-dotenv pybit openpyxl
+4. Place Indicator Files: Crucially, ensure indicator files (e.g., ema_indicator.py) are located in the /indicators/ subdirectory.
+
+1.3. API CONFIGURATION (.env file)
+
+Create a file named .env in the ROOT DIRECTORY for secure key management:
+
+Ini, TOML
+
+# .env file content
 BYBIT_API_KEY="YOUR_BYBIT_API_KEY"
 BYBIT_API_SECRET="YOUR_BYBIT_API_SECRET"
-⚙️ SECTION 2: BOT CONFIGURATION & RISK MANAGEMENTAll core trading parameters must be set directly within the main.py file under the MAIN SETTINGS block.2.1. Global Trading SettingsPARAMETERCODE VARIABLEDEFAULT VALUEDESCRIPTIONActive StrategySTRATEGY_TYPE1Selects the indicator to use (1 = EMA Indicator).Initial BalanceDEFAULT_BALANCE10000Starting balance for the simulation.RISK PER TRADERISK_PER_TRADE_USDT1.0 USDTCRITICAL: Maximum allowed loss in USDT per single trade.Trading ModeTRADING_MODE20=LONG ONLY, 1=SHORT ONLY, 2=BOTH.Liquidity FilterMIN_VOLUME_24H150000000Minimum 24-hour volume for an eligible trading pair.2.2. Strategy Parameters (EMA Example)These parameters are defined in the EMA_PARAMS dictionary and control the trade entry/exit logic:PARAMETERDEFAULTDESCRIPTIONSL_PERCENT0.8Stop Loss percentage (used for volume calculation).TP_PERCENT1.0Take Profit percentage.EMA_FAST_LENGTH10Length of the faster EMA.EMA_SLOW_LENGTH20Length of the slower EMA.KLINE_INTERVAL'60'Candlestick interval (e.g., '60' minutes).CATEGORY'linear'Bybit market category (linear or spot).2.3. Risk CalculationThe calculate_volume_from_risk function ensures that the position size is scaled according to the maximum risk defined by RISK_PER_TRADE_USDT and the strategy's stop loss percentage (SL_PERCENT).🚀 SECTION 3: EXECUTION AND ACCOUNTING3.1. Running the BotActivate your environment and execute the main script:Bashsource venv/bin/activate
+SECTION 2: BOT CONFIGURATION (main.py)
+All trading logic and risk parameters are set in main.py.
+
+2.1. GLOBAL TRADING SETTINGS
+
+Active Strategy: STRATEGY_TYPE is set to 1 (EMA Indicator).
+
+RISK PER TRADE: RISK_PER_TRADE_USDT is set to 1.0 USDT (CRITICAL: Maximum loss allowed per trade).
+
+Trading Mode: TRADING_MODE is set to 2 (Both LONG and SHORT).
+
+Liquidity Filter: MIN_VOLUME_24H is set to 150,000,000 (Minimum 24h volume for trading pairs).
+
+2.2. STRATEGY PARAMETERS (EMA Example)
+
+These settings define the exit levels and technical analysis periods (EMA_PARAMS):
+
+Stop Loss %: SL_PERCENT is 0.8.
+
+Take Profit %: TP_PERCENT is 1.0.
+
+Fast/Slow EMA: Lengths are 10 / 20.
+
+Interval: KLINE_INTERVAL is '60' (60 minutes).
+
+SECTION 3: EXECUTION AND ACCOUNTING
+3.1. RUNNING THE BOT
+
+Start the main trading loop from your activated virtual environment:
+
+Bash
+
+source venv/bin/activate
 python main.py
-The console will output the startup messages and begin the main trading loop.3.2. Accounting LogsThe bot automatically generates and updates the following accounting files in the root directory:balance.txt: Stores the current floating balance of the simulator.trade_history.xlsx: A detailed log of all closed trades (entry/exit prices, PnL, balance). This requires the openpyxl library.⚠️ TROUBLESHOOTINGError "Strategy is not implemented": Verify that STRATEGY_TYPE in main.py is set to 1, as only the EMA strategy is defined in this file.API Errors / Empty Tickers: Double-check your API keys in the .env file. Ensure they are correct and have the necessary permissions for market data retrieval.Missing Log File (.xlsx): Ensure the openpyxl dependency was successfully installed via pip install openpyxl.
+3.2. ACCOUNTING LOGS
+
+The bot manages persistent data in the root directory:
+
+balance.txt: Stores the current floating simulation balance.
+
+trade_history.xlsx: Detailed log of all closed trades (PnL, entry/exit data). Requires openpyxl.
+
+⚠️ TROUBLESHOOTING
+"Strategy is not implemented" Error: Verify STRATEGY_TYPE in main.py is set to 1.
+
+API Errors: Check your keys in .env for correctness and valid permissions.
+
+Missing Logs: Ensure openpyxl is installed (pip install openpyxl).
