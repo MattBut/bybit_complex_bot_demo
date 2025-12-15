@@ -2,7 +2,9 @@
 Trading bot with  EMA strategy could be used as framework to  different strategies analysing 
 
 🤖 CRYPTO TRADING SIMULATOR BOT: INSTALLATION & USAGE GUIDE
+
 SECTION 1: PREREQUISITES AND SETUP
+
 1.1. SYSTEM REQUIREMENTS
 
 Python 3.9+ (Installed).
@@ -19,17 +21,20 @@ Bash
 
 git clone https://github.com/YourUsername/your-repo-name.git
 cd your-repo-name
+
 2. Create & Activate Virtual Environment:
 
 Bash
 
 python3 -m venv venv
 source venv/bin/activate
+
 3. Install All Dependencies:
 
 Bash
 
 pip install pandas pandas-ta numpy python-dotenv pybit openpyxl
+
 4. Place Indicator Files: Crucially, ensure indicator files (e.g., ema_indicator.py) are located in the /indicators/ subdirectory.
 
 1.3. API CONFIGURATION (.env file)
@@ -67,6 +72,7 @@ Fast/Slow EMA: Lengths are 10 / 20.
 Interval: KLINE_INTERVAL is '60' (60 minutes).
 
 SECTION 3: EXECUTION AND ACCOUNTING
+
 3.1. RUNNING THE BOT
 
 Start the main trading loop from your activated virtual environment:
@@ -75,6 +81,7 @@ Bash
 
 source venv/bin/activate
 python main.py
+
 3.2. ACCOUNTING LOGS
 
 The bot manages persistent data in the root directory:
@@ -84,6 +91,7 @@ balance.txt: Stores the current floating simulation balance.
 trade_history.xlsx: Detailed log of all closed trades (PnL, entry/exit data). Requires openpyxl.
 
 ⚠️ TROUBLESHOOTING
+
 "Strategy is not implemented" Error: Verify STRATEGY_TYPE in main.py is set to 1.
 
 API Errors: Check your keys in .env for correctness and valid permissions.
