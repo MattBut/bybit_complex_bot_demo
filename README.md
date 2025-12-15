@@ -1,4 +1,5 @@
 # bybit_complex_bot_demo
+
 Trading bot with  EMA strategy could be used as framework to  different strategies analysing 
 
 🤖 CRYPTO TRADING SIMULATOR BOT: INSTALLATION & USAGE GUIDE
@@ -20,6 +21,7 @@ Reliable internet connection.
 Bash
 
 git clone https://github.com/YourUsername/your-repo-name.git
+
 cd your-repo-name
 
 2. Create & Activate Virtual Environment:
@@ -27,6 +29,7 @@ cd your-repo-name
 Bash
 
 python3 -m venv venv
+
 source venv/bin/activate
 
 3. Install All Dependencies:
@@ -41,12 +44,14 @@ pip install pandas pandas-ta numpy python-dotenv pybit openpyxl
 
 Create a file named .env in the ROOT DIRECTORY for secure key management:
 
-Ini, TOML
-
 # .env file content
+
 BYBIT_API_KEY="YOUR_BYBIT_API_KEY"
+
 BYBIT_API_SECRET="YOUR_BYBIT_API_SECRET"
+
 SECTION 2: BOT CONFIGURATION (main.py)
+
 All trading logic and risk parameters are set in main.py.
 
 2.1. GLOBAL TRADING SETTINGS
@@ -80,6 +85,7 @@ Start the main trading loop from your activated virtual environment:
 Bash
 
 source venv/bin/activate
+
 python main.py
 
 3.2. ACCOUNTING LOGS
